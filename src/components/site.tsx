@@ -4,6 +4,7 @@ import { ArrowRight, Menu, X, ShieldCheck, ScanLine, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button';
 import { services } from '@/lib/site-content';
 import johan from '@/assets/johan.png.asset.json';
+import { serviceImages } from '@/lib/service-images';
 
 export function Brand() {
   return <Link to="/" className="brand" aria-label="Mind to Safety – startsida"><span className="brand-main">Mind <span>to Safety</span></span><span className="brand-tag">Kunskap. Beredskap. Trygghet.</span></Link>;
@@ -25,7 +26,13 @@ export function ContactBand() {
 
 export function ServicesOverview() {
   const icons = [ShieldCheck, ScanLine, Users];
-  return <section className="section-band"><div className="site-width"><div className="section-heading"><div><p className="eyebrow">Vad vi erbjuder</p><h2 className="section-title">Kunskap som blir handlingskraft.</h2></div><Link className="text-link" to="/tjanster">Alla utbildningar & insatser <ArrowRight size={16}/></Link></div><div className="services-grid">{services.map((service, index) => { const Icon = icons[index] ?? ShieldCheck; return <article className="service-item" key={service.id}><div className="service-top"><Icon size={26} strokeWidth={1}/><span className="service-number">{service.number}</span></div><h3>{service.title}</h3><p>{service.short} {index === 0 ? 'Förebyggande arbete, mental förberedelse och praktisk träning för allvarliga våldshändelser.' : index === 1 ? 'Vi identifierar risker i er verksamhet och ger konkreta, prioriterade förslag som fungerar i vardagen.' : 'Praktiska verktyg och gemensamma arbetssätt för ett tryggt, professionellt och rättssäkert agerande.'}</p><Link className="text-link" to="/tjanster" hash={service.id}>Läs mer <ArrowRight size={15}/></Link></article>; })}</div></div></section>;
+  return <section className="section-band"><div className="site-width"><div className="section-heading"><div><p className="eyebrow">Vad vi erbjuder</p><h2 className="section-title">Kunskap som blir handlingskraft.</h2></div><Link className="text-link" to="/tjanster">Alla utbildningar & insatser <ArrowRight size={16}/></Link></div><div className="services-grid">{services.map((service, index) => { const Icon = icons[index] ?? ShieldCheck; return <article className="service-item" key={service.id}><ServiceImage id={service.id}/><div className="service-top"><Icon size={26} strokeWidth={1}/><span className="service-number">{service.number}</span></div><h3>{service.title}</h3><p>{service.short} {index === 0 ? 'Förebyggande arbete, mental förberedelse och praktisk träning för allvarliga våldshändelser.' : index === 1 ? 'Vi identifierar risker i er verksamhet och ger konkreta, prioriterade förslag som fungerar i vardagen.' : 'Praktiska verktyg och gemensamma arbetssätt för ett tryggt, professionellt och rättssäkert agerande.'}</p><Link className="text-link" to="/tjanster" hash={service.id}>Läs mer <ArrowRight size={15}/></Link></article>; })}</div></div></section>;
+}
+
+export function ServiceImage({ id }: { id: string }) {
+  const image = serviceImages[id];
+  if (!image) return null;
+  return <img className="service-image" src={image.src} alt={image.alt} width={1024} height={688} loading="lazy"/>;
 }
 
 export function JohanPortrait() {

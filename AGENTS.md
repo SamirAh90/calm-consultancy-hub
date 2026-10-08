@@ -13,3 +13,4 @@
 - Keep service facts and leaf-page metadata in `src/lib/site-content.ts` to avoid conflicting descriptions across pages.
 - Contact forms prepare a mailto draft, not a simulated submission; no email delivery service is connected.
 - Store all visual tokens and editorial styles in `src/styles.css`; use Button variants for calls to action.
+- Keep service image mappings in `src/lib/service-images.ts` and render them through shared `ServiceImage` so overview and detail imagery remain consistent.
