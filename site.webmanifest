@@ -1,0 +1,10 @@
+{
+  "name": "Mind to Safety",
+  "short_name": "Mind to Safety",
+  "lang": "sv",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#171a17",
+  "theme_color": "#171a17",
+  "icons": [{ "src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
