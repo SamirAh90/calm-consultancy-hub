@@ -85,7 +85,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; }
 .service-item p { min-height: 105px; margin-bottom: 14px; color: var(--muted); font-size: 13px; line-height: 1.8; }
 .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 82px; }
 .profile-panel { display: flex; min-height: 340px; flex-direction: column; align-items: flex-start; justify-content: center; padding: 38px; border: 1px solid var(--line); background: linear-gradient(145deg, rgb(130 145 122 / 11%), transparent 68%), var(--ink); }
-.profile-initials { margin: 20px 0 5px; color: var(--gold-light); font-family: var(--font-display); font-size: 105px; line-height: 1; }
+.profile-portrait { width: min(100%, 300px); aspect-ratio: 1; margin: 18px 0 8px; object-fit: cover; object-position: center; }
 .profile-panel p { margin: 8px 0 2px; font-family: var(--font-display); font-size: 30px; }
 .profile-caption { color: var(--muted); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; }
 .quote { max-width: 880px; margin: 52px auto 0; padding-top: 39px; border-top: 1px solid var(--line); font-family: var(--font-display); font-size: 32px; line-height: 1.38; text-align: center; }
@@ -175,7 +175,6 @@ textarea.field-input { min-height: 138px; resize: vertical; }
   .service-item h3 { min-height: 0; margin: 13px 0 10px; font-size: 30px; }
   .service-item p { min-height: 0; margin-bottom: 10px; font-size: 15px; line-height: 1.75; }
   .profile-panel { min-height: 250px; padding: 28px; }
-  .profile-initials { font-size: 82px; }
   .quote { margin-top: 38px; padding-top: 30px; font-size: 27px; }
   .contact-band { padding: 54px 0; }
   .contact-inner { align-items: flex-start; flex-direction: column; gap: 20px; }
