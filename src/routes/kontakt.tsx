@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { SiteHeader, SiteFooter } from '@/components/site';
 import { siteHead } from '@/lib/site-content';
 export const Route = createFileRoute('/kontakt')({
-  validateSearch: (search: Record<string, unknown>) => ({ amne: typeof search.amne === 'string' ? search.amne : '' }),
+  validateSearch: (search: Record<string, unknown>): { amne?: string } => ({ amne: typeof search['amne'] === 'string' ? search['amne'] : undefined }),
   head: () => siteHead('Kontakt & boka samtal', 'Kontakta Mind to Safety för ett förutsättningslöst samtal om utbildning, säkerhetsanalys och trygghet i er verksamhet.'), component: ContactPage,
 });
 function ContactPage() {
