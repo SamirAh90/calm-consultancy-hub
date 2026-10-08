@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep public company content in dedicated TanStack routes and shared presentation in `src/components/site.tsx` so navigation and branding stay consistent.
+- Keep service facts and leaf-page metadata in `src/lib/site-content.ts` to avoid conflicting descriptions across pages.
+- Contact forms prepare a mailto draft, not a simulated submission; no email delivery service is connected.
+- Store all visual tokens and editorial styles in `src/styles.css`; use Button variants for calls to action.
