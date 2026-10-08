@@ -1,4 +1,4 @@
-# Mind to Safety
+# mindtosafety
 
 Static website for Mind to Safety, made with HTML, CSS, and a small browser script for the mobile menu and contact email draft. There is no app runtime, package manager, build step, or backend.
 
@@ -8,7 +8,7 @@ Open `index.html` in a browser. The site can also be served by any basic static-
 
 ## Publish on GitHub Pages
 
-In repository settings, choose **Pages → Build and deployment → Deploy from a branch**, then select `main` and `/ (root)`. The HTML pages, CSS, JavaScript, and assets are served directly from the repository; relative links also work under the project-site URL prefix. No workflow, build command, Node.js, secrets, or dependencies are required. The sitemap, robots file, canonical links, and social URLs use `https://mindtosafety.se`, the domain supplied by the existing site. Configure that custom domain separately if it should host this version.
+In repository settings, choose **Pages → Build and deployment → Source → GitHub Actions**. The workflow in `.github/workflows/static.yml` deploys the repository root on pushes to `main`. After renaming the repository to `mindtosafety`, GitHub changes the default project-site URL to use `/mindtosafety/`; the relative HTML, CSS, JavaScript, and asset links continue to work without a build. If `mindtosafety.se` is configured as a custom Pages domain, its URL stays the same. Domain and DNS settings are separate from the repository rename.
 
 The contact form does not submit data to a server. It validates the fields in the browser and opens a prefilled email draft to `info@mindtosafety.com`; visitors can also use the direct email link. There is no authentication, database, payment, or API integration in this project.
 
