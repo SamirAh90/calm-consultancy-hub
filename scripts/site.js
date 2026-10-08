@@ -1,16 +1,36 @@
-const siteMenu = document.querySelector(".site-menu");
+const menuButton = document.querySelector("[data-menu-toggle]");
+const navigation = document.querySelector("#primary-navigation");
+const mobileMenu = window.matchMedia("(max-width: 700px)");
 
-if (siteMenu instanceof HTMLDetailsElement) {
-  const mobileMenu = window.matchMedia("(max-width: 700px)");
-  const menuTrigger = siteMenu.querySelector("summary");
-  const syncMenu = () => {
-    siteMenu.open = !mobileMenu.matches;
+if (menuButton instanceof HTMLButtonElement && navigation instanceof HTMLElement) {
+  const updateMenuState = () => {
+    menuButton.setAttribute("aria-expanded", String(!navigation.hidden));
+    menuButton.setAttribute("aria-label", navigation.hidden ? "Öppna menyn" : "Stäng menyn");
   };
 
-  menuTrigger?.addEventListener("keydown", (event) => {
+  const syncMenu = () => {
+    menuButton.hidden = !mobileMenu.matches;
+    navigation.hidden = mobileMenu.matches;
+    updateMenuState();
+  };
+
+  const toggleMenu = () => {
+    navigation.hidden = !navigation.hidden;
+    updateMenuState();
+  };
+
+  menuButton.addEventListener("click", toggleMenu);
+  menuButton.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" && event.key !== " ") return;
     event.preventDefault();
-    siteMenu.open = !siteMenu.open;
+    toggleMenu();
+  });
+
+  navigation.addEventListener("click", (event) => {
+    if (mobileMenu.matches && event.target instanceof Element && event.target.closest("a")) {
+      navigation.hidden = true;
+      updateMenuState();
+    }
   });
 
   syncMenu();
