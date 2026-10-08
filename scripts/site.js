@@ -2,9 +2,16 @@ const siteMenu = document.querySelector(".site-menu");
 
 if (siteMenu instanceof HTMLDetailsElement) {
   const mobileMenu = window.matchMedia("(max-width: 700px)");
+  const menuTrigger = siteMenu.querySelector("summary");
   const syncMenu = () => {
     siteMenu.open = !mobileMenu.matches;
   };
+
+  menuTrigger?.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    siteMenu.open = !siteMenu.open;
+  });
 
   syncMenu();
   mobileMenu.addEventListener("change", syncMenu);
